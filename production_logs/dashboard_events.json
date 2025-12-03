@@ -1,0 +1,1002 @@
+[
+  {
+    "timestamp": "2025-11-27T17:06:39.527689",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 415
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:06:47.341666",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 415
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:07:12.819299",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 416
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:07:20.709281",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 416
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:07:46.150325",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 417
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:07:55.921410",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 417
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:08:22.910311",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 418
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:08:30.806451",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 418
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:09:25.045609",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 419
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:09:31.998827",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 419
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:10:04.534682",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 420
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:10:11.018496",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 420
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:10:35.725729",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 421
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:10:41.709950",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 421
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:11:06.726826",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 422
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:11:13.786889",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 422
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:11:38.958074",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 423
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:11:45.808752",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 423
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:12:11.327919",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 424
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:12:19.098005",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 424
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:12:45.006988",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 425
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:12:52.849393",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 425
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:13:19.095129",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 426
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:13:24.997476",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 426
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:13:51.740802",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 427
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:13:59.168244",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 427
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:14:25.863621",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 428
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:14:33.175976",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 428
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:15:00.447357",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 429
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:15:08.319756",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 429
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:15:34.931307",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 430
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:15:45.004336",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 430
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:16:10.766217",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 431
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:16:18.909499",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 431
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:16:47.900298",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 432
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:16:56.396777",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 432
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:17:22.814914",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 433
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:17:30.813341",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 433
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:17:57.699436",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 434
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:18:05.641363",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 434
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:18:30.998185",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 435
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:18:39.327101",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 435
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:19:05.016857",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 436
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:19:13.102427",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 436
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:19:39.284788",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 437
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:19:46.935043",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 437
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:20:18.705461",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 438
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:20:26.349990",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 438
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:20:55.892929",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 439
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:21:04.583982",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 439
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:21:30.153982",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 440
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:21:37.656158",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 440
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:22:03.530122",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 441
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:22:11.492211",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 441
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:22:43.638853",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 442
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:22:50.958463",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 442
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:23:16.703451",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 443
+    }
+  },
+  {
+    "timestamp": "2025-11-27T17:23:24.545347",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 443
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:39:05.549893",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 444
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:39:18.564389",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 444
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:39:59.888073",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 445
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:40:13.122808",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 445
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:40:45.263923",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 446
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:40:56.897090",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 446
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:41:26.939145",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 447
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:41:39.241427",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 447
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:42:09.471083",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 448
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:42:25.195693",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 448
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:42:55.456343",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 449
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:43:08.056079",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 449
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:43:37.731724",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 450
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:43:48.771983",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 450
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:44:18.566081",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 451
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:44:29.549467",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 451
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:44:57.705134",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 452
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:45:08.852833",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 452
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:45:38.336712",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 453
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:45:52.727747",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 453
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:46:25.367819",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 454
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:46:37.649477",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 454
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:47:09.760876",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 455
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:47:24.999575",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 455
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:47:57.577358",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 456
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:48:14.509294",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 456
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:48:44.543071",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 457
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:48:55.831361",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 457
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:49:26.407080",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 458
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:49:38.386088",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 458
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:50:10.972705",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 459
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:50:24.974194",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 459
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:50:54.688036",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 460
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:51:07.181691",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 460
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:51:39.554235",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 461
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:51:54.833928",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 461
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:52:32.816574",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 462
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:52:46.397477",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 462
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:53:17.874125",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 463
+    }
+  },
+  {
+    "timestamp": "2025-11-30T13:53:31.880632",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 463
+    }
+  },
+  {
+    "timestamp": "2025-11-30T14:34:57.950166",
+    "type": "training_started",
+    "data": {
+      "total_samples": 966,
+      "training_round": 464
+    }
+  },
+  {
+    "timestamp": "2025-11-30T14:35:03.297595",
+    "type": "training_completed",
+    "data": {
+      "model_name": "SVM",
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.705426087675528,
+      "improvement": 0.0,
+      "is_new_best": false,
+      "training_round": 464
+    }
+  }
+]

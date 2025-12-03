@@ -1,0 +1,63 @@
+{
+  "agriculture": {
+    "precision": 0.9230769230769231,
+    "recall": 0.631578947368421,
+    "f1-score": 0.75,
+    "support": 19.0
+  },
+  "education": {
+    "precision": 0.967741935483871,
+    "recall": 0.9523809523809523,
+    "f1-score": 0.96,
+    "support": 63.0
+  },
+  "employment": {
+    "precision": 0.9622641509433962,
+    "recall": 0.9444444444444444,
+    "f1-score": 0.9532710280373832,
+    "support": 54.0
+  },
+  "environment": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 13.0
+  },
+  "governance": {
+    "precision": 0.9256198347107438,
+    "recall": 1.0,
+    "f1-score": 0.9613733905579399,
+    "support": 112.0
+  },
+  "health": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 81.0
+  },
+  "infrastructure": {
+    "precision": 0.96875,
+    "recall": 0.96875,
+    "f1-score": 0.96875,
+    "support": 32.0
+  },
+  "social_welfare": {
+    "precision": 0.9459459459459459,
+    "recall": 0.9210526315789473,
+    "f1-score": 0.9333333333333333,
+    "support": 38.0
+  },
+  "accuracy": 0.9587378640776699,
+  "macro avg": {
+    "precision": 0.96167484877011,
+    "recall": 0.9272758719715957,
+    "f1-score": 0.940840968991082,
+    "support": 412.0
+  },
+  "weighted avg": {
+    "precision": 0.9589413472292186,
+    "recall": 0.9587378640776699,
+    "f1-score": 0.9571532085513947,
+    "support": 412.0
+  }
+}

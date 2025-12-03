@@ -1,0 +1,357 @@
+2025-11-26 23:21:49,179 - INFO - Loaded existing model
+2025-11-26 23:21:49,236 - INFO - Loaded existing vectorizer
+2025-11-26 23:21:49,247 - INFO - Loaded existing label encoder
+2025-11-26 23:21:49,271 - INFO - Loaded dataset: 11,412 samples
+2025-11-26 23:21:49,271 - INFO - Incremental ML System initialized
+2025-11-26 23:21:49,271 - INFO - Starting Incremental ML System
+2025-11-26 23:21:49,272 - INFO - 
+--- Iteration 1/50 ---
+2025-11-26 23:21:49,277 - INFO - Generated 25 new samples
+2025-11-26 23:21:49,278 - INFO - Starting incremental training #21
+2025-11-26 23:21:52,981 - INFO - Logistic Regression: F1=0.1655, Accuracy=0.1677
+2025-11-26 23:21:53,294 - INFO - SGD Classifier: F1=0.1485, Accuracy=0.1725
+2025-11-26 23:22:17,802 - INFO - Random Forest: F1=0.1175, Accuracy=0.1310
+2025-11-26 23:22:22,835 - INFO - 
+--- Iteration 2/50 ---
+2025-11-26 23:22:22,847 - INFO - Generated 25 new samples
+2025-11-26 23:22:22,847 - INFO - Starting incremental training #21
+2025-11-26 23:22:27,047 - INFO - Logistic Regression: F1=0.1574, Accuracy=0.1590
+2025-11-26 23:22:27,390 - INFO - SGD Classifier: F1=0.1267, Accuracy=0.1558
+2025-11-26 23:22:47,547 - INFO - Random Forest: F1=0.1292, Accuracy=0.1447
+2025-11-26 23:22:52,552 - INFO - 
+--- Iteration 3/50 ---
+2025-11-26 23:22:52,556 - INFO - Generated 25 new samples
+2025-11-26 23:22:52,556 - INFO - Starting incremental training #21
+2025-11-26 23:22:57,868 - INFO - Logistic Regression: F1=0.1421, Accuracy=0.1596
+2025-11-26 23:22:58,278 - INFO - SGD Classifier: F1=0.1220, Accuracy=0.1485
+2025-11-26 23:23:18,132 - INFO - Random Forest: F1=0.1270, Accuracy=0.1580
+2025-11-26 23:23:23,139 - INFO - 
+--- Iteration 4/50 ---
+2025-11-26 23:23:23,145 - INFO - Generated 25 new samples
+2025-11-26 23:23:23,145 - INFO - Starting incremental training #21
+2025-11-26 23:23:30,364 - INFO - Logistic Regression: F1=0.1443, Accuracy=0.1625
+2025-11-26 23:23:30,791 - INFO - SGD Classifier: F1=0.1216, Accuracy=0.1577
+2025-11-26 23:23:50,279 - INFO - Random Forest: F1=0.1380, Accuracy=0.1672
+2025-11-26 23:23:55,285 - INFO - 
+--- Iteration 5/50 ---
+2025-11-26 23:23:55,293 - INFO - Generated 25 new samples
+2025-11-26 23:23:55,294 - INFO - Starting incremental training #21
+2025-11-26 23:24:00,740 - INFO - Logistic Regression: F1=0.1452, Accuracy=0.1638
+2025-11-26 23:24:01,167 - INFO - SGD Classifier: F1=0.1420, Accuracy=0.1717
+2025-11-26 23:24:21,792 - INFO - Random Forest: F1=0.1439, Accuracy=0.1669
+2025-11-26 23:24:26,798 - INFO - 
+--- Iteration 6/50 ---
+2025-11-26 23:24:26,809 - INFO - Generated 25 new samples
+2025-11-26 23:24:26,810 - INFO - Starting incremental training #21
+2025-11-26 23:24:32,071 - INFO - Logistic Regression: F1=0.1551, Accuracy=0.1667
+2025-11-26 23:24:32,529 - INFO - SGD Classifier: F1=0.1006, Accuracy=0.1352
+2025-11-26 23:24:51,740 - INFO - Random Forest: F1=0.1268, Accuracy=0.1604
+2025-11-26 23:24:56,748 - INFO - 
+--- Iteration 7/50 ---
+2025-11-26 23:24:56,752 - INFO - Generated 25 new samples
+2025-11-26 23:24:56,753 - INFO - Starting incremental training #21
+2025-11-26 23:25:05,517 - INFO - Logistic Regression: F1=0.1490, Accuracy=0.1664
+2025-11-26 23:25:06,523 - INFO - SGD Classifier: F1=0.1245, Accuracy=0.1460
+2025-11-26 23:25:45,516 - INFO - Random Forest: F1=0.1291, Accuracy=0.1523
+2025-11-26 23:25:50,525 - INFO - 
+--- Iteration 8/50 ---
+2025-11-26 23:25:50,533 - INFO - Generated 25 new samples
+2025-11-26 23:25:50,533 - INFO - Starting incremental training #21
+2025-11-26 23:25:59,357 - INFO - Logistic Regression: F1=0.1448, Accuracy=0.1505
+2025-11-26 23:25:59,932 - INFO - SGD Classifier: F1=0.1032, Accuracy=0.1332
+2025-11-26 23:26:22,383 - INFO - Random Forest: F1=0.1321, Accuracy=0.1583
+2025-11-26 23:26:27,391 - INFO - 
+--- Iteration 9/50 ---
+2025-11-26 23:26:27,402 - INFO - Generated 25 new samples
+2025-11-26 23:26:27,402 - INFO - Starting incremental training #21
+2025-11-26 23:26:33,827 - INFO - Logistic Regression: F1=0.1443, Accuracy=0.1502
+2025-11-26 23:26:34,369 - INFO - SGD Classifier: F1=0.1099, Accuracy=0.1455
+2025-11-26 23:26:56,152 - INFO - Random Forest: F1=0.1340, Accuracy=0.1612
+2025-11-26 23:27:01,160 - INFO - 
+--- Iteration 10/50 ---
+2025-11-26 23:27:01,172 - INFO - Generated 25 new samples
+2025-11-26 23:27:01,172 - INFO - Starting incremental training #21
+2025-11-26 23:27:07,898 - INFO - Logistic Regression: F1=0.1467, Accuracy=0.1578
+2025-11-26 23:27:08,430 - INFO - SGD Classifier: F1=0.1017, Accuracy=0.1469
+2025-11-26 23:27:34,320 - INFO - Random Forest: F1=0.1318, Accuracy=0.1625
+2025-11-26 23:27:39,327 - INFO - 
+--- Iteration 11/50 ---
+2025-11-26 23:27:39,343 - INFO - Generated 25 new samples
+2025-11-26 23:27:39,344 - INFO - Starting incremental training #21
+2025-11-26 23:27:46,616 - INFO - Logistic Regression: F1=0.1421, Accuracy=0.1531
+2025-11-26 23:27:47,148 - INFO - SGD Classifier: F1=0.0997, Accuracy=0.1547
+2025-11-26 23:28:11,686 - INFO - Random Forest: F1=0.1320, Accuracy=0.1594
+2025-11-26 23:28:16,692 - INFO - 
+--- Iteration 12/50 ---
+2025-11-26 23:28:16,696 - INFO - Generated 25 new samples
+2025-11-26 23:28:16,696 - INFO - Starting incremental training #21
+2025-11-26 23:28:24,232 - INFO - Logistic Regression: F1=0.1386, Accuracy=0.1529
+2025-11-26 23:28:24,810 - INFO - SGD Classifier: F1=0.0809, Accuracy=0.1295
+2025-11-26 23:28:49,152 - INFO - Random Forest: F1=0.1356, Accuracy=0.1654
+2025-11-26 23:28:54,157 - INFO - 
+--- Iteration 13/50 ---
+2025-11-26 23:28:54,162 - INFO - Generated 25 new samples
+2025-11-26 23:28:54,162 - INFO - Starting incremental training #21
+2025-11-26 23:29:03,072 - INFO - Logistic Regression: F1=0.1266, Accuracy=0.1495
+2025-11-26 23:29:03,874 - INFO - SGD Classifier: F1=0.1100, Accuracy=0.1480
+2025-11-26 23:29:30,192 - INFO - Random Forest: F1=0.1300, Accuracy=0.1558
+2025-11-26 23:29:35,198 - INFO - 
+--- Iteration 14/50 ---
+2025-11-26 23:29:35,204 - INFO - Generated 25 new samples
+2025-11-26 23:29:35,204 - INFO - Starting incremental training #21
+2025-11-26 23:29:42,401 - INFO - Logistic Regression: F1=0.1312, Accuracy=0.1542
+2025-11-26 23:29:42,966 - INFO - SGD Classifier: F1=0.1552, Accuracy=0.1713
+2025-11-26 23:30:04,055 - INFO - Random Forest: F1=0.1278, Accuracy=0.1511
+2025-11-26 23:30:09,063 - INFO - 
+--- Iteration 15/50 ---
+2025-11-26 23:30:09,067 - INFO - Generated 25 new samples
+2025-11-26 23:30:09,067 - INFO - Starting incremental training #21
+2025-11-26 23:30:16,360 - INFO - Logistic Regression: F1=0.1299, Accuracy=0.1524
+2025-11-26 23:30:16,904 - INFO - SGD Classifier: F1=0.1217, Accuracy=0.1586
+2025-11-26 23:30:42,043 - INFO - Random Forest: F1=0.1360, Accuracy=0.1586
+2025-11-26 23:30:47,049 - INFO - 
+--- Iteration 16/50 ---
+2025-11-26 23:30:47,067 - INFO - Generated 25 new samples
+2025-11-26 23:30:47,067 - INFO - Starting incremental training #21
+2025-11-26 23:30:57,923 - INFO - Logistic Regression: F1=0.1278, Accuracy=0.1509
+2025-11-26 23:30:58,683 - INFO - SGD Classifier: F1=0.1093, Accuracy=0.1462
+2025-11-26 23:31:28,909 - INFO - Random Forest: F1=0.1236, Accuracy=0.1540
+2025-11-26 23:31:33,914 - INFO - 
+--- Iteration 17/50 ---
+2025-11-26 23:31:33,918 - INFO - Generated 25 new samples
+2025-11-26 23:31:33,918 - INFO - Starting incremental training #21
+2025-11-26 23:31:42,381 - INFO - Logistic Regression: F1=0.1272, Accuracy=0.1509
+2025-11-26 23:31:43,188 - INFO - SGD Classifier: F1=0.1054, Accuracy=0.1369
+2025-11-26 23:32:16,664 - INFO - Random Forest: F1=0.1335, Accuracy=0.1540
+2025-11-26 23:32:21,670 - INFO - 
+--- Iteration 18/50 ---
+2025-11-26 23:32:21,679 - INFO - Generated 25 new samples
+2025-11-26 23:32:21,679 - INFO - Starting incremental training #21
+2025-11-26 23:32:29,279 - INFO - Logistic Regression: F1=0.1191, Accuracy=0.1462
+2025-11-26 23:32:29,916 - INFO - SGD Classifier: F1=0.0914, Accuracy=0.1291
+2025-11-26 23:32:52,596 - INFO - Random Forest: F1=0.1166, Accuracy=0.1415
+2025-11-26 23:32:57,603 - INFO - 
+--- Iteration 19/50 ---
+2025-11-26 23:32:57,606 - INFO - Generated 25 new samples
+2025-11-26 23:32:57,606 - INFO - Starting incremental training #21
+2025-11-26 23:33:04,348 - INFO - Logistic Regression: F1=0.1227, Accuracy=0.1462
+2025-11-26 23:33:04,882 - INFO - SGD Classifier: F1=0.1006, Accuracy=0.1369
+2025-11-26 23:33:27,456 - INFO - Random Forest: F1=0.1272, Accuracy=0.1524
+2025-11-26 23:33:32,462 - INFO - 
+--- Iteration 20/50 ---
+2025-11-26 23:33:32,465 - INFO - Generated 25 new samples
+2025-11-26 23:33:32,465 - INFO - Starting incremental training #21
+2025-11-26 23:33:40,540 - INFO - Logistic Regression: F1=0.1213, Accuracy=0.1462
+2025-11-26 23:33:41,263 - INFO - SGD Classifier: F1=0.1117, Accuracy=0.1524
+2025-11-26 23:34:08,908 - INFO - Random Forest: F1=0.1240, Accuracy=0.1509
+2025-11-26 23:34:13,916 - INFO - 
+--- Iteration 21/50 ---
+2025-11-26 23:34:13,919 - INFO - Generated 25 new samples
+2025-11-26 23:34:13,919 - INFO - Starting incremental training #21
+2025-11-26 23:34:23,842 - INFO - Logistic Regression: F1=0.1229, Accuracy=0.1493
+2025-11-26 23:34:24,544 - INFO - SGD Classifier: F1=0.1143, Accuracy=0.1555
+2025-11-26 23:34:55,841 - INFO - Random Forest: F1=0.1318, Accuracy=0.1586
+2025-11-26 23:35:00,848 - INFO - 
+--- Iteration 22/50 ---
+2025-11-26 23:35:00,857 - INFO - Generated 25 new samples
+2025-11-26 23:35:00,857 - INFO - Starting incremental training #21
+2025-11-26 23:35:08,852 - INFO - Logistic Regression: F1=0.1214, Accuracy=0.1477
+2025-11-26 23:35:09,534 - INFO - SGD Classifier: F1=0.1090, Accuracy=0.1477
+2025-11-26 23:35:40,939 - INFO - Random Forest: F1=0.1149, Accuracy=0.1446
+2025-11-26 23:35:45,947 - INFO - 
+--- Iteration 23/50 ---
+2025-11-26 23:35:45,954 - INFO - Generated 25 new samples
+2025-11-26 23:35:45,955 - INFO - Starting incremental training #21
+2025-11-26 23:35:54,199 - INFO - Logistic Regression: F1=0.1279, Accuracy=0.1509
+2025-11-26 23:35:55,376 - INFO - SGD Classifier: F1=0.0953, Accuracy=0.1431
+2025-11-26 23:36:34,046 - INFO - Random Forest: F1=0.1222, Accuracy=0.1493
+2025-11-26 23:36:39,057 - INFO - 
+--- Iteration 24/50 ---
+2025-11-26 23:36:39,062 - INFO - Generated 25 new samples
+2025-11-26 23:36:39,062 - INFO - Starting incremental training #21
+2025-11-26 23:36:48,971 - INFO - Logistic Regression: F1=0.1206, Accuracy=0.1460
+2025-11-26 23:36:50,011 - INFO - SGD Classifier: F1=0.0917, Accuracy=0.1366
+2025-11-26 23:37:24,622 - INFO - Random Forest: F1=0.1256, Accuracy=0.1491
+2025-11-26 23:37:29,630 - INFO - 
+--- Iteration 25/50 ---
+2025-11-26 23:37:29,637 - INFO - Generated 25 new samples
+2025-11-26 23:37:29,637 - INFO - Starting incremental training #21
+2025-11-26 23:37:38,375 - INFO - Logistic Regression: F1=0.1300, Accuracy=0.1444
+2025-11-26 23:37:39,024 - INFO - SGD Classifier: F1=0.0798, Accuracy=0.1320
+2025-11-26 23:38:03,401 - INFO - Random Forest: F1=0.1118, Accuracy=0.1429
+2025-11-26 23:38:08,408 - INFO - 
+--- Iteration 26/50 ---
+2025-11-26 23:38:08,411 - INFO - Generated 25 new samples
+2025-11-26 23:38:08,411 - INFO - Starting incremental training #21
+2025-11-26 23:38:16,671 - INFO - Logistic Regression: F1=0.1283, Accuracy=0.1444
+2025-11-26 23:38:17,319 - INFO - SGD Classifier: F1=0.0799, Accuracy=0.1382
+2025-11-26 23:38:39,658 - INFO - Random Forest: F1=0.1171, Accuracy=0.1522
+2025-11-26 23:38:44,667 - INFO - 
+--- Iteration 27/50 ---
+2025-11-26 23:38:44,670 - INFO - Generated 25 new samples
+2025-11-26 23:38:44,670 - INFO - Starting incremental training #21
+2025-11-26 23:38:51,607 - INFO - Logistic Regression: F1=0.1232, Accuracy=0.1506
+2025-11-26 23:38:52,163 - INFO - SGD Classifier: F1=0.1256, Accuracy=0.1553
+2025-11-26 23:39:16,636 - INFO - Random Forest: F1=0.1211, Accuracy=0.1522
+2025-11-26 23:39:21,644 - INFO - 
+--- Iteration 28/50 ---
+2025-11-26 23:39:21,652 - INFO - Generated 25 new samples
+2025-11-26 23:39:21,653 - INFO - Starting incremental training #21
+2025-11-26 23:39:30,757 - INFO - Logistic Regression: F1=0.1405, Accuracy=0.1553
+2025-11-26 23:39:31,388 - INFO - SGD Classifier: F1=0.0800, Accuracy=0.1382
+2025-11-26 23:39:55,509 - INFO - Random Forest: F1=0.1291, Accuracy=0.1460
+2025-11-26 23:40:00,515 - INFO - 
+--- Iteration 29/50 ---
+2025-11-26 23:40:00,526 - INFO - Generated 25 new samples
+2025-11-26 23:40:00,526 - INFO - Starting incremental training #21
+2025-11-26 23:40:07,627 - INFO - Logistic Regression: F1=0.1290, Accuracy=0.1444
+2025-11-26 23:40:08,171 - INFO - SGD Classifier: F1=0.0802, Accuracy=0.1398
+2025-11-26 23:40:30,644 - INFO - Random Forest: F1=0.1090, Accuracy=0.1413
+2025-11-26 23:40:35,651 - INFO - 
+--- Iteration 30/50 ---
+2025-11-26 23:40:35,654 - INFO - Generated 25 new samples
+2025-11-26 23:40:35,654 - INFO - Starting incremental training #21
+2025-11-26 23:40:42,384 - INFO - Logistic Regression: F1=0.1294, Accuracy=0.1444
+2025-11-26 23:40:42,991 - INFO - SGD Classifier: F1=0.1050, Accuracy=0.1460
+2025-11-26 23:41:06,038 - INFO - Random Forest: F1=0.1289, Accuracy=0.1460
+2025-11-26 23:41:11,046 - INFO - 
+--- Iteration 31/50 ---
+2025-11-26 23:41:11,050 - INFO - Generated 25 new samples
+2025-11-26 23:41:11,051 - INFO - Starting incremental training #21
+2025-11-26 23:41:19,022 - INFO - Logistic Regression: F1=0.1452, Accuracy=0.1599
+2025-11-26 23:41:19,705 - INFO - SGD Classifier: F1=0.0888, Accuracy=0.1537
+2025-11-26 23:41:41,480 - INFO - Random Forest: F1=0.1388, Accuracy=0.1568
+2025-11-26 23:41:46,486 - INFO - 
+--- Iteration 32/50 ---
+2025-11-26 23:41:46,491 - INFO - Generated 25 new samples
+2025-11-26 23:41:46,492 - INFO - Starting incremental training #21
+2025-11-26 23:41:53,280 - INFO - Logistic Regression: F1=0.1295, Accuracy=0.1460
+2025-11-26 23:41:53,801 - INFO - SGD Classifier: F1=0.1007, Accuracy=0.1429
+2025-11-26 23:42:15,377 - INFO - Random Forest: F1=0.1404, Accuracy=0.1584
+2025-11-26 23:42:20,385 - INFO - 
+--- Iteration 33/50 ---
+2025-11-26 23:42:20,388 - INFO - Generated 25 new samples
+2025-11-26 23:42:20,388 - INFO - Starting incremental training #21
+2025-11-26 23:42:27,799 - INFO - Logistic Regression: F1=0.1299, Accuracy=0.1460
+2025-11-26 23:42:28,421 - INFO - SGD Classifier: F1=0.1033, Accuracy=0.1460
+2025-11-26 23:42:57,109 - INFO - Random Forest: F1=0.1416, Accuracy=0.1646
+2025-11-26 23:43:02,119 - INFO - 
+--- Iteration 34/50 ---
+2025-11-26 23:43:02,122 - INFO - Generated 25 new samples
+2025-11-26 23:43:02,122 - INFO - Starting incremental training #21
+2025-11-26 23:43:09,801 - INFO - Logistic Regression: F1=0.1288, Accuracy=0.1537
+2025-11-26 23:43:10,482 - INFO - SGD Classifier: F1=0.1072, Accuracy=0.1444
+2025-11-26 23:43:40,656 - INFO - Random Forest: F1=0.1303, Accuracy=0.1584
+2025-11-26 23:43:45,664 - INFO - 
+--- Iteration 35/50 ---
+2025-11-26 23:43:45,668 - INFO - Generated 25 new samples
+2025-11-26 23:43:45,668 - INFO - Starting incremental training #21
+2025-11-26 23:43:54,470 - INFO - Logistic Regression: F1=0.1424, Accuracy=0.1553
+2025-11-26 23:43:55,146 - INFO - SGD Classifier: F1=0.1195, Accuracy=0.1537
+2025-11-26 23:44:18,042 - INFO - Random Forest: F1=0.1377, Accuracy=0.1522
+2025-11-26 23:44:23,051 - INFO - 
+--- Iteration 36/50 ---
+2025-11-26 23:44:23,058 - INFO - Generated 25 new samples
+2025-11-26 23:44:23,059 - INFO - Starting incremental training #21
+2025-11-26 23:44:29,236 - INFO - Logistic Regression: F1=0.1324, Accuracy=0.1475
+2025-11-26 23:44:29,770 - INFO - SGD Classifier: F1=0.0901, Accuracy=0.1366
+2025-11-26 23:44:52,428 - INFO - Random Forest: F1=0.1397, Accuracy=0.1615
+2025-11-26 23:44:57,436 - INFO - 
+--- Iteration 37/50 ---
+2025-11-26 23:44:57,443 - INFO - Generated 25 new samples
+2025-11-26 23:44:57,443 - INFO - Starting incremental training #21
+2025-11-26 23:45:03,177 - INFO - Logistic Regression: F1=0.1418, Accuracy=0.1584
+2025-11-26 23:45:03,705 - INFO - SGD Classifier: F1=0.1294, Accuracy=0.1599
+2025-11-26 23:45:25,542 - INFO - Random Forest: F1=0.1373, Accuracy=0.1522
+2025-11-26 23:45:30,549 - INFO - 
+--- Iteration 38/50 ---
+2025-11-26 23:45:30,553 - INFO - Generated 25 new samples
+2025-11-26 23:45:30,553 - INFO - Starting incremental training #21
+2025-11-26 23:45:36,537 - INFO - Logistic Regression: F1=0.1196, Accuracy=0.1442
+2025-11-26 23:45:37,063 - INFO - SGD Classifier: F1=0.1081, Accuracy=0.1426
+2025-11-26 23:45:58,811 - INFO - Random Forest: F1=0.1189, Accuracy=0.1473
+2025-11-26 23:46:03,817 - INFO - 
+--- Iteration 39/50 ---
+2025-11-26 23:46:03,822 - INFO - Generated 25 new samples
+2025-11-26 23:46:03,822 - INFO - Starting incremental training #21
+2025-11-26 23:46:09,785 - INFO - Logistic Regression: F1=0.1242, Accuracy=0.1488
+2025-11-26 23:46:10,318 - INFO - SGD Classifier: F1=0.1047, Accuracy=0.1380
+2025-11-26 23:46:33,492 - INFO - Random Forest: F1=0.1321, Accuracy=0.1581
+2025-11-26 23:46:38,498 - INFO - 
+--- Iteration 40/50 ---
+2025-11-26 23:46:38,501 - INFO - Generated 25 new samples
+2025-11-26 23:46:38,502 - INFO - Starting incremental training #21
+2025-11-26 23:46:45,528 - INFO - Logistic Regression: F1=0.1413, Accuracy=0.1535
+2025-11-26 23:46:46,100 - INFO - SGD Classifier: F1=0.0945, Accuracy=0.1457
+2025-11-26 23:47:10,454 - INFO - Random Forest: F1=0.1369, Accuracy=0.1488
+2025-11-26 23:47:15,461 - INFO - 
+--- Iteration 41/50 ---
+2025-11-26 23:47:15,467 - INFO - Generated 25 new samples
+2025-11-26 23:47:15,468 - INFO - Starting incremental training #21
+2025-11-26 23:47:23,184 - INFO - Logistic Regression: F1=0.1373, Accuracy=0.1504
+2025-11-26 23:47:24,090 - INFO - SGD Classifier: F1=0.0969, Accuracy=0.1411
+2025-11-26 23:47:53,265 - INFO - Random Forest: F1=0.1295, Accuracy=0.1473
+2025-11-26 23:47:58,274 - INFO - 
+--- Iteration 42/50 ---
+2025-11-26 23:47:58,281 - INFO - Generated 25 new samples
+2025-11-26 23:47:58,281 - INFO - Starting incremental training #21
+2025-11-26 23:48:04,684 - INFO - Logistic Regression: F1=0.1233, Accuracy=0.1488
+2025-11-26 23:48:05,299 - INFO - SGD Classifier: F1=0.1035, Accuracy=0.1473
+2025-11-26 23:48:28,527 - INFO - Random Forest: F1=0.1202, Accuracy=0.1488
+2025-11-26 23:48:33,532 - INFO - 
+--- Iteration 43/50 ---
+2025-11-26 23:48:33,537 - INFO - Generated 25 new samples
+2025-11-26 23:48:33,537 - INFO - Starting incremental training #21
+2025-11-26 23:48:40,399 - INFO - Logistic Regression: F1=0.1372, Accuracy=0.1504
+2025-11-26 23:48:40,958 - INFO - SGD Classifier: F1=0.0931, Accuracy=0.1457
+2025-11-26 23:49:04,028 - INFO - Random Forest: F1=0.1292, Accuracy=0.1457
+2025-11-26 23:49:09,038 - INFO - 
+--- Iteration 44/50 ---
+2025-11-26 23:49:09,043 - INFO - Generated 25 new samples
+2025-11-26 23:49:09,043 - INFO - Starting incremental training #21
+2025-11-26 23:49:17,645 - INFO - Logistic Regression: F1=0.1210, Accuracy=0.1473
+2025-11-26 23:49:18,292 - INFO - SGD Classifier: F1=0.0934, Accuracy=0.1380
+2025-11-26 23:49:47,710 - INFO - Random Forest: F1=0.1261, Accuracy=0.1519
+2025-11-26 23:49:52,716 - INFO - 
+--- Iteration 45/50 ---
+2025-11-26 23:49:52,722 - INFO - Generated 25 new samples
+2025-11-26 23:49:52,723 - INFO - Starting incremental training #21
+2025-11-26 23:50:00,169 - INFO - Logistic Regression: F1=0.1230, Accuracy=0.1488
+2025-11-26 23:50:00,794 - INFO - SGD Classifier: F1=0.0931, Accuracy=0.1380
+2025-11-26 23:50:27,598 - INFO - Random Forest: F1=0.1241, Accuracy=0.1519
+2025-11-26 23:50:32,607 - INFO - 
+--- Iteration 46/50 ---
+2025-11-26 23:50:32,610 - INFO - Generated 25 new samples
+2025-11-26 23:50:32,610 - INFO - Starting incremental training #21
+2025-11-26 23:50:40,932 - INFO - Logistic Regression: F1=0.1424, Accuracy=0.1566
+2025-11-26 23:50:41,767 - INFO - SGD Classifier: F1=0.0953, Accuracy=0.1488
+2025-11-26 23:51:04,341 - INFO - Random Forest: F1=0.1417, Accuracy=0.1581
+2025-11-26 23:51:09,360 - INFO - 
+--- Iteration 47/50 ---
+2025-11-26 23:51:09,365 - INFO - Generated 25 new samples
+2025-11-26 23:51:09,366 - INFO - Starting incremental training #21
+2025-11-26 23:51:17,229 - INFO - Logistic Regression: F1=0.1323, Accuracy=0.1473
+2025-11-26 23:51:17,853 - INFO - SGD Classifier: F1=0.1028, Accuracy=0.1442
+2025-11-26 23:51:43,865 - INFO - Random Forest: F1=0.1161, Accuracy=0.1442
+2025-11-26 23:51:48,871 - INFO - 
+--- Iteration 48/50 ---
+2025-11-26 23:51:48,875 - INFO - Generated 25 new samples
+2025-11-26 23:51:48,875 - INFO - Starting incremental training #21
+2025-11-26 23:51:57,708 - INFO - Logistic Regression: F1=0.1438, Accuracy=0.1581
+2025-11-26 23:51:58,349 - INFO - SGD Classifier: F1=0.1045, Accuracy=0.1488
+2025-11-26 23:52:23,012 - INFO - Random Forest: F1=0.1338, Accuracy=0.1473
+2025-11-26 23:52:28,019 - INFO - 
+--- Iteration 49/50 ---
+2025-11-26 23:52:28,024 - INFO - Generated 25 new samples
+2025-11-26 23:52:28,024 - INFO - Starting incremental training #21
+2025-11-26 23:52:35,297 - INFO - Logistic Regression: F1=0.1357, Accuracy=0.1519
+2025-11-26 23:52:36,001 - INFO - SGD Classifier: F1=0.0990, Accuracy=0.1473
+2025-11-26 23:52:58,925 - INFO - Random Forest: F1=0.1374, Accuracy=0.1566
+2025-11-26 23:53:03,930 - INFO - 
+--- Iteration 50/50 ---
+2025-11-26 23:53:03,934 - INFO - Generated 25 new samples
+2025-11-26 23:53:03,934 - INFO - Starting incremental training #21
+2025-11-26 23:53:11,902 - INFO - Logistic Regression: F1=0.1260, Accuracy=0.1504
+2025-11-26 23:53:12,562 - INFO - SGD Classifier: F1=0.1030, Accuracy=0.1473
+2025-11-26 23:53:37,799 - INFO - Random Forest: F1=0.1197, Accuracy=0.1488
+2025-11-26 23:53:42,806 - INFO - Incremental learning completed. Final F1: 0.9528

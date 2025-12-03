@@ -1,0 +1,32 @@
+{
+  "model_name": "SVM",
+  "f1_score": 0.7198225384444162,
+  "accuracy": 0.705426087675528,
+  "training_samples": 956,
+  "categories": 8,
+  "features": 1711,
+  "training_date": "2025-11-30T14:35:03.251189",
+  "training_count": 464,
+  "improvement": 0.0,
+  "previous_best": 0.7198225384444162,
+  "model_results": {
+    "Logistic Regression": {
+      "f1_score": 0.7180957891951528,
+      "accuracy": 0.71875,
+      "cv_mean": 0.7580244455197392,
+      "cv_std": 0.009807638637387895
+    },
+    "Random Forest": {
+      "f1_score": 0.6984945346569251,
+      "accuracy": 0.7239583333333334,
+      "cv_mean": 0.7257753827602079,
+      "cv_std": 0.010141803054625515
+    },
+    "SVM": {
+      "f1_score": 0.7198225384444162,
+      "accuracy": 0.7135416666666666,
+      "cv_mean": 0.7565993380226005,
+      "cv_std": 0.02310215290588113
+    }
+  }
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "best_model": "Ensemble",
+    "best_f1_score": 0.9571532085513947,
+    "best_accuracy": 0.9587378640776699,
+    "training_date": "2025-11-25T01:02:09.415307",
+    "training_samples": 2060,
+    "features": 8000,
+    "categories": [
+      "agriculture",
+      "education",
+      "employment",
+      "environment",
+      "governance",
+      "health",
+      "infrastructure",
+      "social_welfare"
+    ],
+    "model_results": {
+      "Logistic Regression": {
+        "accuracy": 0.9514563106796117,
+        "f1_score": 0.9487399086378456,
+        "precision": 0.954887947733528,
+        "recall": 0.9514563106796117,
+        "cv_mean": 0.939255788015218,
+        "cv_std": 0.01031664807614374
+      },
+      "Random Forest": {
+        "accuracy": 0.9004854368932039,
+        "f1_score": 0.8968369339721113,
+        "precision": 0.9130294687302685,
+        "recall": 0.9004854368932039,
+        "cv_mean": 0.8892862645173014,
+        "cv_std": 0.012447543451422578
+      },
+      "SVM": {
+        "accuracy": 0.9514563106796117,
+        "f1_score": 0.9487055012047101,
+        "precision": 0.9521278007808386,
+        "recall": 0.9514563106796117,
+        "cv_mean": 0.9492775431700489,
+        "cv_std": 0.014875543881464837
+      },
+      "Naive Bayes": {
+        "accuracy": 0.8713592233009708,
+        "f1_score": 0.8717497837766209,
+        "precision": 0.8798306279962855,
+        "recall": 0.8713592233009708,
+        "cv_mean": 0.8639912087018768,
+        "cv_std": 0.013769463276208914
+      },
+      "Ensemble": {
+        "accuracy": 0.9587378640776699,
+        "f1_score": 0.9571532085513947,
+        "precision": 0.9589413472292186,
+        "recall": 0.9587378640776699,
+        "component_models": [
+          "Logistic Regression",
+          "SVM",
+          "Random Forest"
+        ]
+      }
+    }
+  }
+]

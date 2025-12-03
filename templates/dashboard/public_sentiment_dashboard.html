@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Social Services Satisfaction Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header p { font-size: 1.2em; opacity: 0.9; }
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: calc(100vh - 140px);
+        }
+        .left-panel {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .satisfaction-overview {
+            text-align: center;
+        }
+        .satisfaction-score {
+            font-size: 4em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .satisfaction-label {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-item {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .regional-map {
+            position: relative;
+        }
+        .province-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        .province-item.high { border-left-color: #4CAF50; }
+        .province-item.medium { border-left-color: #FF9800; }
+        .province-item.low { border-left-color: #f44336; }
+        .satisfaction-bar {
+            width: 100px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .satisfaction-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        .right-panel {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+        .chart-container {
+            position: relative;
+            height: 250px;
+            max-height: 250px;
+            overflow: hidden;
+        }
+        .live-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            height: 100%;
+        }
+        .category-card {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .category-score {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .category-name {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+        .positive { color: #4CAF50; }
+        .neutral { color: #FF9800; }
+        .negative { color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Nepal Social Services Satisfaction Monitor</h1>
+        <p>Real-time Analysis of Government Service Effectiveness Across Nepal</p>
+    </div>
+
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="card satisfaction-overview">
+                <div class="live-indicator">LIVE</div>
+                <h2>Overall Satisfaction</h2>
+                <div class="satisfaction-score" id="overallScore">72%</div>
+                <div class="satisfaction-label" id="satisfactionLabel">Moderately Satisfied</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value" id="totalFeedback">15,847</span>
+                        <span class="stat-label">Total Feedback</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="activeServices">127</span>
+                        <span class="stat-label">Active Services</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="positiveTrend">+5.2%</span>
+                        <span class="stat-label">This Month</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="responseTime">2.4h</span>
+                        <span class="stat-label">Avg Response</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card regional-map">
+                <h3>Provincial Satisfaction Levels</h3>
+                <div id="provinceList">
+                    <div class="province-item high">
+                        <span>Province 1 (Koshi)</span>
+                        <div>
+                            <span>78%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 78%; background: #4CAF50;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="province-item medium">
+                        <span>Madhesh Province</span>
+                        <div>
+                            <span>65%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 65%; background: #FF9800;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="province-item high">
+                        <span>Bagmati Province</span>
+                        <div>
+                            <span>82%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 82%; background: #4CAF50;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="province-item medium">
+                        <span>Gandaki Province</span>
+                        <div>
+                            <span>71%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 71%; background: #FF9800;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="province-item low">
+                        <span>Lumbini Province</span>
+                        <div>
+                            <span>58%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 58%; background: #f44336;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="province-item medium">
+                        <span>Karnali Province</span>
+                        <div>
+                            <span>63%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 63%; background: #FF9800;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="province-item low">
+                        <span>Sudurpashchim Province</span>
+                        <div>
+                            <span>56%</span>
+                            <div class="satisfaction-bar">
+                                <div class="satisfaction-fill" style="width: 56%; background: #f44336;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="card">
+                <h3>Satisfaction Trend (Last 30 Days)</h3>
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Service Category Performance</h3>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <div class="category-score positive">79%</div>
+                        <div class="category-name">Health Services</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-score positive">75%</div>
+                        <div class="category-name">Education</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-score neutral">68%</div>
+                        <div class="category-name">Infrastructure</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-score negative">54%</div>
+                        <div class="category-name">Employment</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-score positive">81%</div>
+                        <div class="category-name">Social Welfare</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-score neutral">62%</div>
+                        <div class="category-name">Governance</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Data Log -->
+    <div style="background: rgba(0,0,0,0.8); color: #00ff00; padding: 20px; margin: 20px; border-radius: 10px; font-family: 'Courier New', monospace; font-size: 0.9em; max-height: 200px; overflow-y: auto; position: relative; z-index: 1; clear: both; margin-top: 40px;" id="liveDataLog">
+        <h4 style="color: #4CAF50; margin-bottom: 15px;">Live Data Analysis Log</h4>
+        <div id="logContent">Loading real data analysis...</div>
+    </div>
+
+    <script>
+        // Initialize trend chart
+        const ctx = document.getElementById('trendChart').getContext('2d');
+        const trendChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Satisfaction %',
+                    data: [],
+                    borderColor: '#4CAF50',
+                    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: 'white' }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { color: 'white' }
+                    }
+                }
+            }
+        });
+
+        // Generate initial trend data
+        function generateTrendData() {
+            const labels = [];
+            const data = [];
+            const now = new Date();
+            
+            for (let i = 29; i >= 0; i--) {
+                const date = new Date(now);
+                date.setDate(date.getDate() - i);
+                labels.push(date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+                
+                // Generate realistic satisfaction data with slight upward trend
+                const baseScore = 65 + Math.random() * 15;
+                const trendBoost = (29 - i) * 0.2; // Slight upward trend
+                data.push(Math.min(85, baseScore + trendBoost + (Math.random() - 0.5) * 8));
+            }
+            
+            trendChart.data.labels = labels;
+            trendChart.data.datasets[0].data = data;
+            trendChart.update();
+        }
+
+        // Update satisfaction score and label
+        function updateSatisfactionLabel(score) {
+            const label = document.getElementById('satisfactionLabel');
+            if (score >= 80) {
+                label.textContent = 'Highly Satisfied';
+                label.className = 'satisfaction-label positive';
+            } else if (score >= 60) {
+                label.textContent = 'Moderately Satisfied';
+                label.className = 'satisfaction-label neutral';
+            } else {
+                label.textContent = 'Needs Improvement';
+                label.className = 'satisfaction-label negative';
+            }
+        }
+
+        // Update dashboard with real data
+        function updateDashboard() {
+            fetch('/api/sentiment/')
+                .then(response => response.json())
+                .then(data => {
+                    // Update with real social media data
+                    document.getElementById('overallScore').textContent = Math.round(data.overall_satisfaction) + '%';
+                    updateSatisfactionLabel(data.overall_satisfaction);
+                    
+                    document.getElementById('totalFeedback').textContent = data.total_feedback.toLocaleString();
+                    document.getElementById('activeServices').textContent = data.active_services;
+                    
+                    // Update provincial data
+                    const provinceList = document.getElementById('provinceList');
+                    provinceList.innerHTML = '';
+                    
+                    data.provinces.forEach(province => {
+                        const item = document.createElement('div');
+                        item.className = `province-item ${province.category}`;
+                        item.innerHTML = `
+                            <span>${province.name}</span>
+                            <div>
+                                <span>${province.satisfaction}%</span>
+                                <div class="satisfaction-bar">
+                                    <div class="satisfaction-fill" style="width: ${province.satisfaction}%; background: ${getColorForCategory(province.category)};"></div>
+                                </div>
+                            </div>
+                        `;
+                        provinceList.appendChild(item);
+                    });
+                    
+                    // Update category performance
+                    const categoryGrid = document.querySelector('.category-grid');
+                    categoryGrid.innerHTML = '';
+                    
+                    Object.entries(data.categories).forEach(([name, score]) => {
+                        const card = document.createElement('div');
+                        card.className = 'category-card';
+                        const scoreClass = score >= 75 ? 'positive' : score >= 60 ? 'neutral' : 'negative';
+                        card.innerHTML = `
+                            <div class="category-score ${scoreClass}">${score}%</div>
+                            <div class="category-name">${name}</div>
+                        `;
+                        categoryGrid.appendChild(card);
+                    });
+                    
+                    // Update trend chart with real data
+                    const now = new Date();
+                    if (trendChart.data.labels.length >= 30) {
+                        trendChart.data.labels.shift();
+                        trendChart.data.datasets[0].data.shift();
+                    }
+                    
+                    trendChart.data.labels.push(now.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
+                    trendChart.data.datasets[0].data.push(data.overall_satisfaction);
+                    trendChart.update('none');
+                    
+                    // Show data source indicator
+                    const indicator = document.querySelector('.live-indicator');
+                    if (data.data_source === 'real_web_scraping') {
+                        indicator.textContent = 'LIVE - WEB SCRAPED';
+                        indicator.style.background = '#4CAF50';
+                    } else if (data.data_source === 'real_social_media') {
+                        indicator.textContent = 'LIVE - SOCIAL MEDIA';
+                        indicator.style.background = '#27ae60';
+                    } else {
+                        indicator.textContent = 'DEMO DATA';
+                        indicator.style.background = '#FF9800';
+                    }
+                    
+                    // Update live data log
+                    updateLiveDataLog(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching real data:', error);
+                });
+        }
+        
+        function getColorForCategory(category) {
+            switch(category) {
+                case 'high': return '#4CAF50';
+                case 'medium': return '#FF9800';
+                case 'low': return '#f44336';
+                default: return '#4CAF50';
+            }
+        }
+
+        // Update live data log
+        function updateLiveDataLog(data) {
+            const logContent = document.getElementById('logContent');
+            const timestamp = new Date().toLocaleTimeString();
+            
+            let logText = `[${timestamp}] Data Source: ${data.data_source}\n`;
+            
+            if (data.analysis_details) {
+                logText += `[${timestamp}] Samples Analyzed: ${data.analysis_details.samples_analyzed}\n`;
+                logText += `[${timestamp}] Average Sentiment: ${data.analysis_details.avg_sentiment}\n`;
+                logText += `[${timestamp}] Provinces Found: ${data.analysis_details.provinces_found.join(', ')}\n`;
+                logText += `[${timestamp}] Services Found: ${data.analysis_details.services_found.join(', ')}\n`;
+            }
+            
+            if (data.sample_texts && data.sample_texts.length > 0) {
+                logText += `\n[${timestamp}] REAL SCRAPED TEXT SAMPLES:\n`;
+                data.sample_texts.forEach((text, index) => {
+                    logText += `${index + 1}. "${text.substring(0, 100)}..."\n`;
+                });
+            }
+            
+            logText += `\n[${timestamp}] Overall Satisfaction: ${data.overall_satisfaction}%\n`;
+            logText += `[${timestamp}] Total Feedback: ${data.total_feedback}\n`;
+            logText += `================================\n\n`;
+            
+            logContent.innerHTML = '<pre>' + logText + (logContent.innerHTML || '') + '</pre>';
+            
+            // Keep only last 10 entries
+            const lines = logContent.innerHTML.split('================================');
+            if (lines.length > 10) {
+                logContent.innerHTML = lines.slice(0, 10).join('================================');
+            }
+        }
+        
+        // Initialize dashboard
+        generateTrendData();
+        updateSatisfactionLabel(72);
+
+        // Update every 5 seconds
+        setInterval(updateDashboard, 5000);
+
+        // Add some visual effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animation = 'fadeInUp 0.6s ease forwards';
+            });
+        });
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

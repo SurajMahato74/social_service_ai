@@ -1,0 +1,59 @@
+{
+  "collection_timestamp": "2025-11-24T23:18:05.517621",
+  "collection_duration_seconds": 0.07768774032592773,
+  "target_samples": 5000,
+  "actual_samples": 4400,
+  "collection_rate_per_second": 56636.992935313,
+  "category_distribution": {
+    "education": 764,
+    "employment": 749,
+    "health": 749,
+    "governance": 720,
+    "agriculture": 362,
+    "infrastructure": 356,
+    "social_welfare": 355,
+    "environment": 345
+  },
+  "sentiment_distribution": {
+    "neutral": 3649,
+    "positive": 751
+  },
+  "source_distribution": {
+    "CBS_Nepal": 600,
+    "Finance_Ministry": 400,
+    "Health_Ministry": 300,
+    "Education_Ministry": 300,
+    "WorldBank_Nepal": 300,
+    "UNDP_Nepal": 250,
+    "UNICEF_Nepal": 200,
+    "NPC_Nepal": 200,
+    "Labor_Ministry": 200,
+    "ADB_Nepal": 150,
+    "onlinekhabar.com": 100,
+    "ekantipur.com": 100,
+    "ratopati.com": 100,
+    "nayapatrika.com": 100,
+    "annapurnapost.com": 100,
+    "setopati.com": 100,
+    "news24.com": 100,
+    "newsbeep.com": 100,
+    "dcnepal.com": 100,
+    "techpana.com": 100,
+    "bijayatech.com": 100,
+    "himalayantimes.com": 100,
+    "kathmandupost.com": 100,
+    "technepal.com": 100,
+    "myrepublica.com": 100
+  },
+  "quality_metrics": {
+    "mean_quality_score": 0.8929955949419501,
+    "mean_service_relevance": 0.926423540056641,
+    "high_quality_samples": 4400,
+    "quality_score_std": 0.055333750752216915
+  },
+  "data_coverage": {
+    "unique_categories": 8,
+    "unique_sources": 25,
+    "date_range_days": 364
+  }
+}

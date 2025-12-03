@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Social Service AI - Nepal{% endblock %}</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --nepal-red: #DC143C;
+            --nepal-blue: #003893;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--nepal-red) !important;
+        }
+        
+        .sidebar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .sidebar .nav-link {
+            color: white;
+            padding: 12px 20px;
+            margin: 5px 0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .metric-card.success {
+            background: linear-gradient(135deg, var(--success-color) 0%, #2ecc71 100%);
+        }
+        
+        .metric-card.warning {
+            background: linear-gradient(135deg, var(--warning-color) 0%, #e67e22 100%);
+        }
+        
+        .metric-card.danger {
+            background: linear-gradient(135deg, var(--danger-color) 0%, #c0392b 100%);
+        }
+        
+        .ssei-score {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        
+        .nepal-flag {
+            background: linear-gradient(45deg, var(--nepal-red), var(--nepal-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .loading-spinner {
+            display: none;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+        }
+        
+        .map-container {
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                min-height: auto;
+            }
+        }
+    </style>
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'core:dashboard' %}">
+                <i class="fas fa-chart-line"></i>
+                Social Service AI
+                <small class="text-muted">Nepal</small>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="refreshData">
+                            <i class="fas fa-sync-alt"></i> Refresh Data
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/">
+                            <i class="fas fa-cog"></i> Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar">
+                <nav class="nav flex-column">
+                    <a class="nav-link {% if request.resolver_match.url_name == 'dashboard' %}active{% endif %}" 
+                       href="{% url 'core:dashboard' %}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'nepal_map' %}active{% endif %}" 
+                       href="{% url 'core:nepal_map' %}">
+                        <i class="fas fa-map"></i> Nepal Map
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'sentiment_analysis' %}active{% endif %}" 
+                       href="{% url 'core:sentiment_analysis' %}">
+                        <i class="fas fa-heart"></i> Sentiment Analysis
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'service_tracking' %}active{% endif %}" 
+                       href="{% url 'core:service_tracking' %}">
+                        <i class="fas fa-tasks"></i> Service Tracking
+                    </a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'reports' %}active{% endif %}" 
+                       href="{% url 'core:reports' %}">
+                        <i class="fas fa-chart-bar"></i> Reports
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10">
+                <div class="container-fluid py-4">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Loading data...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Global variables
+        let refreshInterval;
+        
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            setupAutoRefresh();
+        });
+        
+        function initializeDashboard() {
+            console.log('Social Service AI Dashboard Initialized');
+        }
+        
+        function setupAutoRefresh() {
+            // Auto-refresh every 5 minutes
+            refreshInterval = setInterval(function() {
+                refreshDashboardData();
+            }, 300000);
+        }
+        
+        function refreshDashboardData() {
+            showLoading();
+            
+            // Refresh data via AJAX
+            fetch('/api/dashboard/summary/')
+                .then(response => response.json())
+                .then(data => {
+                    updateDashboardMetrics(data);
+                    hideLoading();
+                })
+                .catch(error => {
+                    console.error('Error refreshing data:', error);
+                    hideLoading();
+                });
+        }
+        
+        function updateDashboardMetrics(data) {
+            // Update metrics on the dashboard
+            if (data.national_avg_ssei) {
+                const sseiElement = document.getElementById('national-ssei');
+                if (sseiElement) {
+                    sseiElement.textContent = data.national_avg_ssei.toFixed(1);
+                }
+            }
+        }
+        
+        function showLoading() {
+            const modal = new bootstrap.Modal(document.getElementById('loadingModal'));
+            modal.show();
+        }
+        
+        function hideLoading() {
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loadingModal'));
+            if (modal) {
+                modal.hide();
+            }
+        }
+        
+        // Manual refresh button
+        document.getElementById('refreshData').addEventListener('click', function(e) {
+            e.preventDefault();
+            refreshDashboardData();
+        });
+        
+        // Utility functions
+        function formatNumber(num) {
+            return new Intl.NumberFormat('en-US').format(num);
+        }
+        
+        function getSSEIColor(score) {
+            if (score >= 80) return 'success';
+            if (score >= 60) return 'warning';
+            return 'danger';
+        }
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

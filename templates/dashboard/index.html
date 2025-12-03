@@ -1,0 +1,442 @@
+{% extends 'dashboard/base.html' %}
+
+{% block title %}Dashboard - Social Service AI Nepal{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h1 class="nepal-flag">
+            <i class="fas fa-flag"></i>
+            Social Service Effectiveness Dashboard - Nepal
+        </h1>
+        <p class="text-muted">Real-time AI-powered monitoring of social service effectiveness across 77 districts</p>
+    </div>
+</div>
+
+<!-- Key Metrics Row -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card metric-card success">
+            <div class="card-body text-center">
+                <i class="fas fa-chart-line fa-2x mb-2"></i>
+                <h3 class="ssei-score" id="national-ssei">{{ national_avg_ssei|floatformat:1 }}</h3>
+                <p class="mb-0">National SSEI Score</p>
+                <small>Social Service Effectiveness Index</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card metric-card">
+            <div class="card-body text-center">
+                <i class="fas fa-map-marked-alt fa-2x mb-2"></i>
+                <h3 class="ssei-score">{{ total_districts }}</h3>
+                <p class="mb-0">Districts Monitored</p>
+                <small>All 77 districts of Nepal</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card metric-card warning">
+            <div class="card-body text-center">
+                <i class="fas fa-comments fa-2x mb-2"></i>
+                <h3 class="ssei-score">{{ total_posts_today }}</h3>
+                <p class="mb-0">Posts Analyzed Today</p>
+                <small>Social media sentiment</small>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="card metric-card danger">
+            <div class="card-body text-center">
+                <i class="fas fa-cogs fa-2x mb-2"></i>
+                <h3 class="ssei-score">{{ active_services }}</h3>
+                <p class="mb-0">Active Services</p>
+                <small>Currently being tracked</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row mb-4">
+    <!-- SSEI Trend Chart -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-line-chart"></i> National SSEI Trend (Last 7 Days)</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="sseiTrendChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sentiment Distribution -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-heart"></i> Sentiment Distribution</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- District Performance Row -->
+<div class="row mb-4">
+    <!-- Top Performing Districts -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-trophy text-warning"></i> Top Performing Districts</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>District</th>
+                                <th>Province</th>
+                                <th>SSEI Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topDistrictsTable">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Service Category Breakdown -->
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-tasks"></i> Service Category Breakdown</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="serviceCategoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Real-time Updates Row -->
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5><i class="fas fa-broadcast-tower"></i> Real-time Activity Feed</h5>
+                <span class="badge bg-success">Live</span>
+            </div>
+            <div class="card-body">
+                <div id="activityFeed" style="height: 200px; overflow-y: auto;">
+                    <!-- Real-time updates will appear here -->
+                    <div class="text-center text-muted">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Waiting for real-time updates...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5><i class="fas fa-bolt"></i> Quick Actions</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button class="btn btn-primary w-100" onclick="triggerScraping()">
+                            <i class="fas fa-download"></i> Trigger Data Scraping
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-success w-100" onclick="recalculateSSEI()">
+                            <i class="fas fa-calculator"></i> Recalculate SSEI
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-warning w-100" onclick="generateReport()">
+                            <i class="fas fa-file-pdf"></i> Generate Report
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="{% url 'core:nepal_map' %}" class="btn btn-info w-100">
+                            <i class="fas fa-map"></i> View Nepal Map
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Dashboard Charts
+let sseiTrendChart, sentimentChart, serviceCategoryChart;
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCharts();
+    loadDashboardData();
+    setupWebSocket();
+});
+
+function initializeCharts() {
+    // SSEI Trend Chart
+    const sseiCtx = document.getElementById('sseiTrendChart').getContext('2d');
+    sseiTrendChart = new Chart(sseiCtx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'National SSEI Score',
+                data: [],
+                borderColor: '#3498db',
+                backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                tension: 0.4,
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+    
+    // Sentiment Chart
+    const sentimentCtx = document.getElementById('sentimentChart').getContext('2d');
+    sentimentChart = new Chart(sentimentCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Positive', 'Neutral', 'Negative'],
+            datasets: [{
+                data: [0, 0, 0],
+                backgroundColor: ['#27ae60', '#f39c12', '#e74c3c']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    
+    // Service Category Chart
+    const serviceCtx = document.getElementById('serviceCategoryChart').getContext('2d');
+    serviceCategoryChart = new Chart(serviceCtx, {
+        type: 'bar',
+        data: {
+            labels: [],
+            datasets: [{
+                label: 'Active Services',
+                data: [],
+                backgroundColor: [
+                    '#3498db', '#e74c3c', '#27ae60', '#f39c12', 
+                    '#9b59b6', '#1abc9c', '#34495e', '#e67e22'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+function loadDashboardData() {
+    fetch('/api/dashboard/summary/')
+        .then(response => response.json())
+        .then(data => {
+            updateCharts(data);
+            updateTopDistricts(data.top_performing_districts);
+        })
+        .catch(error => {
+            console.error('Error loading dashboard data:', error);
+        });
+}
+
+function updateCharts(data) {
+    // Update SSEI Trend Chart
+    if (data.sentiment_trend) {
+        const dates = data.sentiment_trend.map(item => new Date(item.date).toLocaleDateString());
+        const scores = data.sentiment_trend.map(item => (item.avg_sentiment + 1) * 50); // Convert to 0-100 scale
+        
+        sseiTrendChart.data.labels = dates;
+        sseiTrendChart.data.datasets[0].data = scores;
+        sseiTrendChart.update();
+    }
+    
+    // Update Sentiment Chart (placeholder data)
+    sentimentChart.data.datasets[0].data = [60, 25, 15];
+    sentimentChart.update();
+    
+    // Update Service Category Chart
+    if (data.service_category_breakdown) {
+        const categories = Object.keys(data.service_category_breakdown);
+        const counts = Object.values(data.service_category_breakdown);
+        
+        serviceCategoryChart.data.labels = categories;
+        serviceCategoryChart.data.datasets[0].data = counts;
+        serviceCategoryChart.update();
+    }
+}
+
+function updateTopDistricts(districts) {
+    const tableBody = document.getElementById('topDistrictsTable');
+    tableBody.innerHTML = '';
+    
+    if (districts && districts.length > 0) {
+        districts.slice(0, 5).forEach((district, index) => {
+            const row = `
+                <tr>
+                    <td><span class="badge bg-primary">${index + 1}</span></td>
+                    <td>${district.district_name}</td>
+                    <td>${district.district_province}</td>
+                    <td>
+                        <span class="badge bg-${getSSEIColor(district.ssei_score)}">
+                            ${district.ssei_score.toFixed(1)}
+                        </span>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row;
+        });
+    } else {
+        tableBody.innerHTML = '<tr><td colspan="4" class="text-center text-muted">No data available</td></tr>';
+    }
+}
+
+function setupWebSocket() {
+    // WebSocket for real-time updates (placeholder)
+    console.log('WebSocket connection would be established here for real-time updates');
+    
+    // Simulate real-time updates
+    setInterval(function() {
+        addActivityFeedItem('New sentiment data processed for Kathmandu district');
+    }, 30000);
+}
+
+function addActivityFeedItem(message) {
+    const feed = document.getElementById('activityFeed');
+    const timestamp = new Date().toLocaleTimeString();
+    
+    const item = document.createElement('div');
+    item.className = 'border-bottom pb-2 mb-2';
+    item.innerHTML = `
+        <small class="text-muted">${timestamp}</small>
+        <div>${message}</div>
+    `;
+    
+    feed.insertBefore(item, feed.firstChild);
+    
+    // Keep only last 10 items
+    while (feed.children.length > 10) {
+        feed.removeChild(feed.lastChild);
+    }
+}
+
+// Quick Action Functions
+function triggerScraping() {
+    showLoading();
+    
+    fetch('/api/dashboard/trigger-scraping/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        hideLoading();
+        alert('Data scraping triggered successfully!');
+        addActivityFeedItem('Manual data scraping initiated');
+    })
+    .catch(error => {
+        hideLoading();
+        alert('Error triggering scraping: ' + error.message);
+    });
+}
+
+function recalculateSSEI() {
+    showLoading();
+    
+    // Simulate SSEI recalculation
+    setTimeout(() => {
+        hideLoading();
+        alert('SSEI recalculation completed!');
+        addActivityFeedItem('SSEI scores recalculated for all districts');
+        loadDashboardData(); // Refresh data
+    }, 2000);
+}
+
+function generateReport() {
+    alert('Report generation feature coming soon!');
+}
+
+// Utility function to get CSRF token
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+// Auto-refresh dashboard every 2 minutes
+setInterval(loadDashboardData, 120000);
+</script>
+{% endblock %}

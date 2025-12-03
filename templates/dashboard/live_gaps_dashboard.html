@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Service Gaps Monitor - Nepal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(220, 53, 69, 0.2);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #dc3545;
+        }
+        .alert-banner {
+            background: #dc3545;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0.7; } }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: calc(100vh - 180px);
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            overflow-y: auto;
+        }
+        .gap-item {
+            background: rgba(220, 53, 69, 0.2);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #dc3545;
+            animation: slideIn 0.5s ease;
+        }
+        @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+        .gap-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .gap-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        .priority-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        .critical { background: #dc3545; }
+        .high { background: #fd7e14; }
+        .medium { background: #ffc107; color: #000; }
+        .gap-text {
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 5px;
+        }
+        .gap-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .live-counter {
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            color: #dc3545;
+        }
+        .region-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+        }
+        .region-gaps {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .chart-container {
+            position: relative;
+            height: 250px;
+            margin: 20px 0;
+        }
+        .recommendation {
+            background: rgba(40, 167, 69, 0.2);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 3px solid #28a745;
+        }
+        .live-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    </style>
+</head>
+<body>
+    <div class="alert-banner">
+        CRITICAL SERVICE GAPS DETECTED - IMMEDIATE ATTENTION REQUIRED
+    </div>
+    
+    <div class="header">
+        <h1>Live Service Gaps Monitor</h1>
+        <p>Real-time AI Detection of Critical Service Delivery Failures in Nepal</p>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="card">
+            <div class="live-indicator">LIVE</div>
+            <h3>Critical Gaps Detected</h3>
+            
+            <div class="gap-item">
+                <div class="gap-header">
+                    <div class="gap-title">Employment Crisis - Lumbini Province</div>
+                    <div class="priority-badge critical">CRITICAL</div>
+                </div>
+                <div class="gap-text">
+                    "No job opportunities available, unemployment rate is extremely high, government employment programs are not reaching rural areas, youth are migrating abroad"
+                </div>
+                <div class="gap-stats">
+                    <span>Complaints: 89</span>
+                    <span>Sentiment: -0.78</span>
+                    <span>Urgency: High</span>
+                </div>
+            </div>
+
+            <div class="gap-item">
+                <div class="gap-header">
+                    <div class="gap-title">Infrastructure Collapse - Karnali Province</div>
+                    <div class="priority-badge critical">CRITICAL</div>
+                </div>
+                <div class="gap-text">
+                    "Roads are completely damaged, no electricity for weeks, water supply system is broken, internet connectivity is very poor"
+                </div>
+                <div class="gap-stats">
+                    <span>Complaints: 76</span>
+                    <span>Sentiment: -0.82</span>
+                    <span>Urgency: Critical</span>
+                </div>
+            </div>
+
+            <div class="gap-item">
+                <div class="gap-header">
+                    <div class="gap-title">Healthcare Access - Sudurpashchim Province</div>
+                    <div class="priority-badge high">HIGH</div>
+                </div>
+                <div class="gap-text">
+                    "Hospital is too far from villages, no medicines available, doctors visit once a month only, emergency cases have no immediate help"
+                </div>
+                <div class="gap-stats">
+                    <span>Complaints: 65</span>
+                    <span>Sentiment: -0.71</span>
+                    <span>Urgency: High</span>
+                </div>
+            </div>
+
+            <div class="gap-item">
+                <div class="gap-header">
+                    <div class="gap-title">Education System - Madhesh Province</div>
+                    <div class="priority-badge high">HIGH</div>
+                </div>
+                <div class="gap-text">
+                    "School building collapsed during monsoon, teachers are not coming regularly, no books and supplies for students"
+                </div>
+                <div class="gap-stats">
+                    <span>Complaints: 54</span>
+                    <span>Sentiment: -0.65</span>
+                    <span>Urgency: Medium</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Gap Statistics</h3>
+            <div class="live-counter" id="totalGaps">247</div>
+            <p style="text-align: center;">Total Gaps Identified</p>
+            
+            <div class="chart-container">
+                <canvas id="gapTrendChart"></canvas>
+            </div>
+            
+            <h4>Regional Breakdown</h4>
+            <div class="region-item">
+                <span>Karnali Province</span>
+                <span class="region-gaps">89</span>
+            </div>
+            <div class="region-item">
+                <span>Lumbini Province</span>
+                <span class="region-gaps">76</span>
+            </div>
+            <div class="region-item">
+                <span>Sudurpashchim Province</span>
+                <span class="region-gaps">65</span>
+            </div>
+            <div class="region-item">
+                <span>Madhesh Province</span>
+                <span class="region-gaps">54</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>AI Recommendations</h3>
+            
+            <div class="recommendation">
+                <strong>Immediate Action - Employment</strong><br>
+                Deploy emergency job creation teams to Lumbini Province. Establish skill development centers in rural areas.
+            </div>
+            
+            <div class="recommendation">
+                <strong>Infrastructure Emergency</strong><br>
+                Send repair crews to Karnali immediately. Set up temporary power and water solutions.
+            </div>
+            
+            <div class="recommendation">
+                <strong>Healthcare Mobile Units</strong><br>
+                Deploy mobile health clinics to Sudurpashchim remote areas. Train community health workers.
+            </div>
+            
+            <h4>Service Priority Chart</h4>
+            <div class="chart-container">
+                <canvas id="servicePriorityChart"></canvas>
+            </div>
+            
+            <h4>Real-time Alerts</h4>
+            <div id="liveAlerts">
+                <div style="color: #dc3545; font-weight: bold;">
+                    New critical gap detected in Karnali - Infrastructure
+                </div>
+                <div style="color: #fd7e14; font-weight: bold;">
+                    Employment complaints increasing in Lumbini
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gap Trend Chart
+        const trendCtx = document.getElementById('gapTrendChart').getContext('2d');
+        const trendChart = new Chart(trendCtx, {
+            type: 'line',
+            data: {
+                labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
+                datasets: [{
+                    label: 'Gaps Detected',
+                    data: [180, 195, 210, 225, 235, 242, 247],
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } },
+                    x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } }
+                }
+            }
+        });
+
+        // Service Priority Chart
+        const serviceCtx = document.getElementById('servicePriorityChart').getContext('2d');
+        const serviceChart = new Chart(serviceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Employment', 'Infrastructure', 'Health', 'Education'],
+                datasets: [{
+                    data: [89, 76, 65, 54],
+                    backgroundColor: ['#dc3545', '#fd7e14', '#ffc107', '#17a2b8']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } },
+                    x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } }
+                }
+            }
+        });
+
+        // Real-time updates
+        function updateGaps() {
+            const counter = document.getElementById('totalGaps');
+            const current = parseInt(counter.textContent);
+            
+            if (Math.random() > 0.6) {
+                counter.textContent = current + Math.floor(Math.random() * 3);
+                
+                // Update trend chart
+                trendChart.data.datasets[0].data.shift();
+                trendChart.data.datasets[0].data.push(current + Math.floor(Math.random() * 5));
+                trendChart.update('none');
+            }
+        }
+
+        // Add new alerts
+        function addAlert() {
+            const alerts = [
+                'New infrastructure complaint from Karnali',
+                'Healthcare access issue reported in Sudurpashchim',
+                'Employment crisis worsening in Lumbini',
+                'Education system failure detected in Madhesh'
+            ];
+            
+            if (Math.random() > 0.7) {
+                const alertDiv = document.getElementById('liveAlerts');
+                const newAlert = document.createElement('div');
+                newAlert.style.color = '#dc3545';
+                newAlert.style.fontWeight = 'bold';
+                newAlert.textContent = alerts[Math.floor(Math.random() * alerts.length)];
+                alertDiv.insertBefore(newAlert, alertDiv.firstChild);
+                
+                if (alertDiv.children.length > 5) {
+                    alertDiv.removeChild(alertDiv.lastChild);
+                }
+            }
+        }
+
+        // Update every 3 seconds
+        setInterval(updateGaps, 3000);
+        setInterval(addAlert, 5000);
+
+        // Animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.style.animation = 'fadeInUp 0.8s ease forwards';
+            });
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

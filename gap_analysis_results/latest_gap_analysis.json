@@ -1,0 +1,132 @@
+{
+  "analysis_timestamp": "2025-11-27T01:21:30.804218",
+  "total_records_analyzed": 6,
+  "gaps_identified": {
+    "health": {
+      "karnali": {
+        "total_complaints": 1,
+        "avg_sentiment": -0.3,
+        "urgency_score": 1.0,
+        "barrier_score": 0.0,
+        "priority_score": 0.64,
+        "priority_level": "LOW",
+        "sample_complaints": [
+          {
+            "text": "Health services in Karnali are terrible, no doctors available, people are dying",
+            "sentiment_score": -0.3,
+            "negative_indicators": 0,
+            "urgency_level": 1,
+            "access_barriers": 0,
+            "timestamp": "2025-11-27T01:21:30.803367"
+          }
+        ],
+        "recommendations": []
+      }
+    },
+    "governance": {
+      "karnali": {
+        "total_complaints": 1,
+        "avg_sentiment": -0.3,
+        "urgency_score": 1.0,
+        "barrier_score": 0.0,
+        "priority_score": 0.64,
+        "priority_level": "LOW",
+        "sample_complaints": [
+          {
+            "text": "Health services in Karnali are terrible, no doctors available, people are dying",
+            "sentiment_score": -0.3,
+            "negative_indicators": 0,
+            "urgency_level": 1,
+            "access_barriers": 0,
+            "timestamp": "2025-11-27T01:21:30.803367"
+          }
+        ],
+        "recommendations": []
+      }
+    },
+    "employment": {
+      "lumbini": {
+        "total_complaints": 1,
+        "avg_sentiment": -0.2,
+        "urgency_score": 0.0,
+        "barrier_score": 0.0,
+        "priority_score": 0.36,
+        "priority_level": "LOW",
+        "sample_complaints": [
+          {
+            "text": "Employment opportunities in Lumbini are very poor, corruption everywhere, no jobs for youth",
+            "sentiment_score": -0.2,
+            "negative_indicators": 1,
+            "urgency_level": 0,
+            "access_barriers": 0,
+            "timestamp": "2025-11-27T01:21:30.803543"
+          }
+        ],
+        "recommendations": [
+          "Implement anti-corruption measures for employment in lumbini"
+        ]
+      }
+    },
+    "infrastructure": {
+      "sudurpashchim": {
+        "total_complaints": 1,
+        "avg_sentiment": -0.2,
+        "urgency_score": 0.0,
+        "barrier_score": 0.0,
+        "priority_score": 0.36,
+        "priority_level": "LOW",
+        "sample_complaints": [
+          {
+            "text": "Infrastructure in Sudurpashchim is broken, roads are damaged, no electricity for weeks",
+            "sentiment_score": -0.2,
+            "negative_indicators": 1,
+            "urgency_level": 0,
+            "access_barriers": 0,
+            "timestamp": "2025-11-27T01:21:30.803664"
+          }
+        ],
+        "recommendations": [
+          "Immediate repair/maintenance of infrastructure infrastructure in sudurpashchim"
+        ]
+      }
+    }
+  },
+  "summary": {
+    "total_gaps_identified": 4,
+    "critical_priority_areas": 0,
+    "high_priority_areas": 0,
+    "most_affected_services": [
+      [
+        "health",
+        1
+      ],
+      [
+        "governance",
+        1
+      ],
+      [
+        "employment",
+        1
+      ]
+    ],
+    "most_affected_locations": [
+      [
+        "karnali",
+        1.28
+      ],
+      [
+        "lumbini",
+        0.36
+      ],
+      [
+        "sudurpashchim",
+        0.36
+      ]
+    ],
+    "key_recommendations": [
+      "Focus immediate attention on critical priority areas",
+      "Implement systematic monitoring for high-priority gaps",
+      "Develop targeted intervention programs for most affected services"
+    ]
+  }
+}

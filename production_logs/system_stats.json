@@ -1,0 +1,309 @@
+{
+  "system_info": {
+    "status": "training",
+    "start_time": "2025-11-30T13:39:04.417825",
+    "runtime_hours": 0.9330276280555555,
+    "is_live": true
+  },
+  "data_stats": {
+    "total_samples": 966,
+    "samples_scraped_today": 1908,
+    "pending_training": 0,
+    "next_training_countdown": 50
+  },
+  "model_stats": {
+    "current_accuracy": 0.7198225384444162,
+    "training_rounds": 20,
+    "last_training": "2025-11-30T14:35:03.316200",
+    "best_model_name": "Ensemble Classifier"
+  },
+  "scraping_stats": {
+    "last_scrape": "2025-11-30T14:34:57.947665",
+    "scraping_interval_minutes": 0.016666666666666666,
+    "sources_active": 2,
+    "success_rate": 95.2
+  },
+  "category_breakdown": {
+    "governance": 179,
+    "education": 177,
+    "health": 170,
+    "employment": 164,
+    "social_welfare": 76,
+    "infrastructure": 69,
+    "environment": 67,
+    "agriculture": 55,
+    "development": 2,
+    "general": 2,
+    "demographics": 1,
+    "gender": 1,
+    "poverty": 1,
+    "economics": 1,
+    "child_welfare": 1
+  },
+  "regional_breakdown": {},
+  "source_statistics": {
+    "Finance_Ministry": {
+      "samples": 84,
+      "success_rate": 100.0
+    },
+    "Education_Ministry": {
+      "samples": 78,
+      "success_rate": 100.0
+    },
+    "Health_Ministry": {
+      "samples": 74,
+      "success_rate": 100.0
+    },
+    "WorldBank_Nepal": {
+      "samples": 72,
+      "success_rate": 100.0
+    },
+    "CBS_Nepal": {
+      "samples": 65,
+      "success_rate": 100.0
+    },
+    "UNDP_Nepal": {
+      "samples": 54,
+      "success_rate": 100.0
+    },
+    "Labor_Ministry": {
+      "samples": 53,
+      "success_rate": 100.0
+    },
+    "UNICEF_Nepal": {
+      "samples": 44,
+      "success_rate": 100.0
+    },
+    "NPC_Nepal": {
+      "samples": 44,
+      "success_rate": 100.0
+    },
+    "himalayantimes.com": {
+      "samples": 28,
+      "success_rate": 100.0
+    },
+    "ekantipur.com": {
+      "samples": 27,
+      "success_rate": 100.0
+    },
+    "myrepublica.com": {
+      "samples": 27,
+      "success_rate": 100.0
+    },
+    "setopati.com": {
+      "samples": 25,
+      "success_rate": 100.0
+    },
+    "kathmandupost.com": {
+      "samples": 24,
+      "success_rate": 100.0
+    },
+    "annapurnapost.com": {
+      "samples": 23,
+      "success_rate": 100.0
+    },
+    "nayapatrika.com": {
+      "samples": 22,
+      "success_rate": 100.0
+    },
+    "ADB_Nepal": {
+      "samples": 21,
+      "success_rate": 100.0
+    },
+    "https://ekantipur.com": {
+      "samples": 20,
+      "success_rate": 100.0
+    },
+    "onlinekhabar.com": {
+      "samples": 20,
+      "success_rate": 100.0
+    },
+    "newsbeep.com": {
+      "samples": 20,
+      "success_rate": 100.0
+    },
+    "news24.com": {
+      "samples": 20,
+      "success_rate": 100.0
+    },
+    "techpana.com": {
+      "samples": 19,
+      "success_rate": 100.0
+    },
+    "dcnepal.com": {
+      "samples": 17,
+      "success_rate": 100.0
+    },
+    "bijayatech.com": {
+      "samples": 16,
+      "success_rate": 100.0
+    },
+    "technepal.com": {
+      "samples": 14,
+      "success_rate": 100.0
+    },
+    "ratopati.com": {
+      "samples": 12,
+      "success_rate": 100.0
+    },
+    "onlinekhabar": {
+      "samples": 6,
+      "success_rate": 100.0
+    },
+    "ekantipur": {
+      "samples": 5,
+      "success_rate": 100.0
+    },
+    "reddit.com/r/nepal": {
+      "samples": 4,
+      "success_rate": 100.0
+    },
+    "social_media": {
+      "samples": 3,
+      "success_rate": 100.0
+    },
+    "worldbank.org": {
+      "samples": 3,
+      "success_rate": 100.0
+    },
+    "reddit.com/r/AskNepal": {
+      "samples": 3,
+      "success_rate": 100.0
+    },
+    "academic_research - https://scholar.google.com": {
+      "samples": 3,
+      "success_rate": 100.0
+    },
+    "social_discussion_forum": {
+      "samples": 2,
+      "success_rate": 100.0
+    },
+    "cbs.gov.np - https://cbs.gov.np/": {
+      "samples": 2,
+      "success_rate": 100.0
+    },
+    "https://www.ratopati.com": {
+      "samples": 2,
+      "success_rate": 100.0
+    },
+    "reddit.com/r/nepali": {
+      "samples": 2,
+      "success_rate": 100.0
+    },
+    "moe.gov.np - https://cbs.gov.np/": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "mohp.gov.np - https://cbs.gov.np/": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "mof.gov.np - https://cbs.gov.np/": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "job_discussion_forum": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "undp.org": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "uis.unesco.org": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "unicef.org": {
+      "samples": 1,
+      "success_rate": 100.0
+    },
+    "https://www.onlinekhabar.com": {
+      "samples": 1,
+      "success_rate": 100.0
+    }
+  },
+  "training_history": [
+    {
+      "round": 11,
+      "timestamp": "2025-11-30T13:47:25.051988",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 12,
+      "timestamp": "2025-11-30T13:48:14.555653",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 13,
+      "timestamp": "2025-11-30T13:48:55.865445",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 14,
+      "timestamp": "2025-11-30T13:49:38.429559",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 15,
+      "timestamp": "2025-11-30T13:50:25.035265",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 16,
+      "timestamp": "2025-11-30T13:51:07.223126",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 17,
+      "timestamp": "2025-11-30T13:51:54.914692",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 18,
+      "timestamp": "2025-11-30T13:52:46.441696",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 19,
+      "timestamp": "2025-11-30T13:53:31.914988",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    },
+    {
+      "round": 20,
+      "timestamp": "2025-11-30T14:35:03.316200",
+      "accuracy": 0.7198225384444162,
+      "improvement": 0.0,
+      "samples_used": 966,
+      "status": "maintained"
+    }
+  ],
+  "last_updated": "2025-11-30T14:35:03.398852"
+}

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepal Social Service AI - Live Production Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        
+        .status-running { background: #2ecc71; color: white; }
+        .status-training { background: #f39c12; color: white; }
+        .status-scraping { background: #3498db; color: white; }
+        .status-stopped { background: #e74c3c; color: white; }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .metric-label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .metric-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .countdown {
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            color: #e74c3c;
+            margin: 20px 0;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ecf0f1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transition: width 0.5s ease;
+        }
+        
+        .training-history {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .history-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .accuracy-trend {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .accuracy-trend.negative {
+            color: #e74c3c;
+        }
+        
+        .sources-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .source-tag {
+            background: #3498db;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        
+        .live-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin-right: 8px;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🇳🇵 Nepal Social Service AI</h1>
+        <p>Live Production Dashboard - Real-time ML System</p>
+        <div id="systemStatus" class="status-badge status-running">
+            <span class="live-indicator"></span>SYSTEM RUNNING
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <!-- System Overview -->
+        <div class="card">
+            <h3>📊 System Overview</h3>
+            <div class="metric">
+                <span class="metric-label">Total Samples</span>
+                <span class="metric-value" id="totalSamples">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Model Accuracy</span>
+                <span class="metric-value" id="modelAccuracy">0.0000</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Training Rounds</span>
+                <span class="metric-value" id="trainingRounds">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">System Runtime</span>
+                <span class="metric-value" id="systemRuntime">0h 0m</span>
+            </div>
+        </div>
+
+        <!-- Live Scraping -->
+        <div class="card">
+            <h3>🔄 Live Data Collection</h3>
+            <div class="metric">
+                <span class="metric-label">Pending Training</span>
+                <span class="metric-value" id="pendingTraining">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Next Training In</span>
+                <div class="countdown" id="trainingCountdown">50</div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="trainingProgress" style="width: 0%"></div>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Last Scrape</span>
+                <span class="metric-value" id="lastScrape">Never</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Active Sources</span>
+                <span class="metric-value" id="activeSources">0</span>
+            </div>
+            <div class="sources-list" id="sourcesList"></div>
+        </div>
+
+        <!-- Model Performance -->
+        <div class="card">
+            <h3>🎯 Model Performance</h3>
+            <div class="metric">
+                <span class="metric-label">Current F1 Score</span>
+                <span class="metric-value" id="currentF1">0.0000</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Last Training</span>
+                <span class="metric-value" id="lastTraining">Never</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Accuracy Trend</span>
+                <span class="metric-value accuracy-trend" id="accuracyTrend">+0.0000</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Samples Used</span>
+                <span class="metric-value" id="samplesUsed">0</span>
+            </div>
+        </div>
+
+        <!-- Training History -->
+        <div class="card">
+            <h3>📈 Training History</h3>
+            <div class="training-history" id="trainingHistory">
+                <div class="history-item">
+                    <strong>No training sessions yet</strong><br>
+                    <small>System will start training after collecting 50 samples</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real-time Stats -->
+        <div class="card">
+            <h3>⚡ Real-time Statistics</h3>
+            <div class="metric">
+                <span class="metric-label">Scraped Today</span>
+                <span class="metric-value" id="scrapedToday">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Scraping Interval</span>
+                <span class="metric-value" id="scrapingInterval">5 min</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">System Status</span>
+                <span class="metric-value" id="detailedStatus">Initializing</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Last Update</span>
+                <span class="metric-value" id="lastUpdate">Just now</span>
+            </div>
+        </div>
+
+        <!-- Nepal Sources -->
+        <div class="card">
+            <h3>🇳🇵 Nepal Data Sources</h3>
+            <div class="metric">
+                <span class="metric-label">News Sites</span>
+                <span class="metric-value">5 Active</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Government</span>
+                <span class="metric-value">3 Active</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Social Media</span>
+                <span class="metric-value">2 Active</span>
+            </div>
+            <div style="margin-top: 15px; font-size: 0.9em; color: #666;">
+                <strong>Active Sources:</strong><br>
+                • Kantipur Daily<br>
+                • Setopati News<br>
+                • Nepal Government Portal<br>
+                • Ministry of Health<br>
+                • Social Media Feeds
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Nepal Social Service AI - Real-time Machine Learning System</p>
+        <p>Continuously learning from live Nepal social service data</p>
+    </div>
+
+    <script>
+        // Update dashboard every 5 seconds
+        function updateDashboard() {
+            fetch('/api/status/')
+                .then(response => response.json())
+                .then(data => {
+                    // System Overview
+                    document.getElementById('totalSamples').textContent = 
+                        (data.data_stats?.total_samples || 0).toLocaleString();
+                    document.getElementById('modelAccuracy').textContent = 
+                        (data.model_stats?.current_accuracy || 0).toFixed(4);
+                    document.getElementById('trainingRounds').textContent = 
+                        data.model_stats?.training_rounds || 0;
+                    
+                    // Runtime calculation
+                    if (data.system_info?.runtime_hours) {
+                        const hours = Math.floor(data.system_info.runtime_hours);
+                        const minutes = Math.floor((data.system_info.runtime_hours - hours) * 60);
+                        document.getElementById('systemRuntime').textContent = `${hours}h ${minutes}m`;
+                    }
+                    
+                    // Live Scraping
+                    document.getElementById('pendingTraining').textContent = 
+                        data.data_stats?.pending_training || 0;
+                    
+                    const countdown = data.data_stats?.next_training_countdown || 50;
+                    document.getElementById('trainingCountdown').textContent = countdown;
+                    
+                    // Progress bar
+                    const progress = ((50 - countdown) / 50) * 100;
+                    document.getElementById('trainingProgress').style.width = `${progress}%`;
+                    
+                    // Last scrape
+                    if (data.scraping_stats?.last_scrape) {
+                        const lastScrape = new Date(data.scraping_stats.last_scrape);
+                        document.getElementById('lastScrape').textContent = 
+                            lastScrape.toLocaleTimeString();
+                    }
+                    
+                    // Active sources
+                    document.getElementById('activeSources').textContent = 
+                        data.scraping_stats?.sources_active || 0;
+                    
+                    // Model Performance
+                    document.getElementById('currentF1').textContent = 
+                        (data.model_stats?.current_accuracy || 0).toFixed(4);
+                    
+                    if (data.model_stats?.last_training && data.model_stats.last_training !== 'Never') {
+                        const lastTraining = new Date(data.model_stats.last_training);
+                        document.getElementById('lastTraining').textContent = 
+                            lastTraining.toLocaleString();
+                    }
+                    
+                    // Training History
+                    if (data.training_history && data.training_history.length > 0) {
+                        const historyHtml = data.training_history.map(item => `
+                            <div class="history-item">
+                                <strong>Round ${item.round}</strong> - 
+                                F1: ${item.accuracy.toFixed(4)} 
+                                <span class="accuracy-trend ${item.improvement >= 0 ? '' : 'negative'}">
+                                    (${item.improvement >= 0 ? '+' : ''}${item.improvement.toFixed(4)})
+                                </span><br>
+                                <small>${new Date(item.timestamp).toLocaleString()}</small>
+                            </div>
+                        `).join('');
+                        document.getElementById('trainingHistory').innerHTML = historyHtml;
+                    }
+                    
+                    // System Status
+                    const status = data.system_info?.status || 'unknown';
+                    const statusBadge = document.getElementById('systemStatus');
+                    statusBadge.className = `status-badge status-${status}`;
+                    statusBadge.innerHTML = `<span class="live-indicator"></span>${status.toUpperCase()}`;
+                    
+                    document.getElementById('detailedStatus').textContent = 
+                        status.charAt(0).toUpperCase() + status.slice(1);
+                    
+                    // Real-time stats
+                    document.getElementById('scrapedToday').textContent = 
+                        (data.data_stats?.samples_scraped_today || 0).toLocaleString();
+                    
+                    if (data.scraping_stats?.scraping_interval_minutes) {
+                        document.getElementById('scrapingInterval').textContent = 
+                            `${data.scraping_stats.scraping_interval_minutes} min`;
+                    }
+                    
+                    // Last update
+                    document.getElementById('lastUpdate').textContent = 
+                        new Date().toLocaleTimeString();
+                })
+                .catch(error => {
+                    console.error('Error updating dashboard:', error);
+                    document.getElementById('detailedStatus').textContent = 'Connection Error';
+                });
+        }
+        
+        // Update immediately and then every 5 seconds
+        updateDashboard();
+        setInterval(updateDashboard, 5000);
+        
+        // Add some visual feedback for live updates
+        setInterval(() => {
+            const indicators = document.querySelectorAll('.live-indicator');
+            indicators.forEach(indicator => {
+                indicator.style.opacity = '0.3';
+                setTimeout(() => {
+                    indicator.style.opacity = '1';
+                }, 100);
+            });
+        }, 2000);
+    </script>
+</body>
+</html>

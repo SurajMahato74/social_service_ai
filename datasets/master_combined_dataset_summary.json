@@ -1,0 +1,27 @@
+{
+  "creation_date": "2025-11-24T23:47:07.709328",
+  "total_samples": 3906,
+  "sources_combined": 2,
+  "duplicates_removed": 1466,
+  "categories": {
+    "employment": 749,
+    "education": 726,
+    "governance": 659,
+    "health": 642,
+    "agriculture": 291,
+    "infrastructure": 283,
+    "social_welfare": 283,
+    "environment": 264,
+    "development": 2,
+    "general": 2,
+    "demographics": 1,
+    "economics": 1,
+    "poverty": 1,
+    "gender": 1,
+    "child_welfare": 1
+  },
+  "quality_metrics": {
+    "mean_quality_score": 0.8936019250078773,
+    "mean_service_relevance": 0.9251248628400205
+  }
+}

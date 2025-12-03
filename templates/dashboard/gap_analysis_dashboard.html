@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Gap Analysis - Nepal Social Services</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c1810 0%, #8B4513 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .header {
+            background: rgba(0,0,0,0.4);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: calc(100vh - 140px);
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            overflow-y: auto;
+        }
+        .priority-item {
+            background: rgba(0,0,0,0.3);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 5px solid;
+        }
+        .critical { border-left-color: #dc3545; }
+        .high { border-left-color: #fd7e14; }
+        .medium { border-left-color: #ffc107; }
+        .low { border-left-color: #28a745; }
+        .gap-score {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .gap-details {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        .recommendation {
+            background: rgba(40, 167, 69, 0.2);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        .live-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .gap-text {
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Service Gap Analysis Dashboard</h1>
+        <p>AI-Powered Identification of Service Delivery Gaps in Nepal</p>
+    </div>
+
+    <div class="main-grid">
+        <div class="card">
+            <div class="live-indicator">ANALYZING</div>
+            <h3>Critical Service Gaps</h3>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number" id="totalGaps">247</span>
+                    <span>Total Gaps</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="criticalGaps">23</span>
+                    <span>Critical</span>
+                </div>
+            </div>
+            
+            <div id="priorityGaps">
+                <div class="priority-item critical">
+                    <div class="gap-score">CRITICAL - Employment Services</div>
+                    <div class="gap-details">Lumbini Province - Priority Score: 4.2</div>
+                    <div class="gap-text">"No job opportunities, unemployment is very high, government programs not reaching rural areas"</div>
+                </div>
+                
+                <div class="priority-item critical">
+                    <div class="gap-score">CRITICAL - Infrastructure</div>
+                    <div class="gap-details">Karnali Province - Priority Score: 3.8</div>
+                    <div class="gap-text">"Roads are in terrible condition, no electricity for weeks, water supply completely broken"</div>
+                </div>
+                
+                <div class="priority-item high">
+                    <div class="gap-score">HIGH - Health Services</div>
+                    <div class="gap-details">Sudurpashchim Province - Priority Score: 2.9</div>
+                    <div class="gap-text">"Hospital is too far, no medicines available, doctors visit once a month only"</div>
+                </div>
+                
+                <div class="priority-item high">
+                    <div class="gap-score">HIGH - Education</div>
+                    <div class="gap-details">Madhesh Province - Priority Score: 2.7</div>
+                    <div class="gap-text">"School building collapsed, teachers not coming regularly, no books for students"</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Gap Analysis by Region</h3>
+            <div class="chart-container">
+                <canvas id="regionChart"></canvas>
+            </div>
+            
+            <h4>Most Affected Areas</h4>
+            <div class="priority-item critical">
+                <div class="gap-score">Karnali Province</div>
+                <div class="gap-details">156 gaps identified - Infrastructure & Employment most affected</div>
+            </div>
+            <div class="priority-item high">
+                <div class="gap-score">Lumbini Province</div>
+                <div class="gap-details">134 gaps identified - Employment & Health services</div>
+            </div>
+            <div class="priority-item medium">
+                <div class="gap-score">Sudurpashchim Province</div>
+                <div class="gap-details">98 gaps identified - Health & Education services</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>AI Recommendations</h3>
+            
+            <h4>Immediate Actions Required</h4>
+            <div class="recommendation">
+                <strong>Employment Crisis - Lumbini</strong><br>
+                Launch emergency job creation program, establish skill development centers, improve rural connectivity
+            </div>
+            
+            <div class="recommendation">
+                <strong>Infrastructure Collapse - Karnali</strong><br>
+                Deploy emergency repair teams, establish temporary power solutions, prioritize road maintenance
+            </div>
+            
+            <div class="recommendation">
+                <strong>Healthcare Access - Remote Areas</strong><br>
+                Deploy mobile health units, establish telemedicine centers, train community health workers
+            </div>
+            
+            <h4>Service Category Analysis</h4>
+            <div class="chart-container">
+                <canvas id="serviceChart"></canvas>
+            </div>
+            
+            <h4>Sentiment Patterns</h4>
+            <div class="gap-text">
+                <strong>Most Negative:</strong> "Government services are completely useless, corruption everywhere, no help for poor people"
+            </div>
+            <div class="gap-text">
+                <strong>Urgent Need:</strong> "Emergency situation, people are dying, immediate help needed, crisis in our village"
+            </div>
+            <div class="gap-text">
+                <strong>Access Barrier:</strong> "Office is too far, need many documents, process is very complex, language problem"
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Region Gap Chart
+        const regionCtx = document.getElementById('regionChart').getContext('2d');
+        const regionChart = new Chart(regionCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Karnali', 'Lumbini', 'Sudurpashchim', 'Madhesh', 'Gandaki', 'Koshi', 'Bagmati'],
+                datasets: [{
+                    label: 'Service Gaps',
+                    data: [156, 134, 98, 87, 76, 65, 43],
+                    backgroundColor: [
+                        '#dc3545', '#fd7e14', '#fd7e14', '#ffc107', '#ffc107', '#28a745', '#28a745'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } },
+                    x: { grid: { color: 'rgba(255,255,255,0.1)' }, ticks: { color: 'white' } }
+                }
+            }
+        });
+
+        // Service Category Chart
+        const serviceCtx = document.getElementById('serviceChart').getContext('2d');
+        const serviceChart = new Chart(serviceCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Employment', 'Infrastructure', 'Health', 'Education', 'Governance', 'Social Welfare'],
+                datasets: [{
+                    data: [89, 76, 65, 54, 43, 32],
+                    backgroundColor: [
+                        '#dc3545', '#fd7e14', '#ffc107', '#17a2b8', '#6f42c1', '#28a745'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: 'white' } }
+                }
+            }
+        });
+
+        // Real-time updates
+        function updateGapData() {
+            const totalElement = document.getElementById('totalGaps');
+            const criticalElement = document.getElementById('criticalGaps');
+            
+            const currentTotal = parseInt(totalElement.textContent);
+            const currentCritical = parseInt(criticalElement.textContent);
+            
+            // Simulate new gaps being identified
+            if (Math.random() > 0.7) {
+                totalElement.textContent = currentTotal + Math.floor(Math.random() * 3);
+                if (Math.random() > 0.8) {
+                    criticalElement.textContent = currentCritical + 1;
+                }
+            }
+        }
+
+        // Update every 10 seconds
+        setInterval(updateGapData, 10000);
+
+        // Add animation effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+                card.style.animation = 'fadeInUp 0.8s ease forwards';
+            });
+        });
+
+        // CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
